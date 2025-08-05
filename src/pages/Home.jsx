@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Layout } from "../components/Layout"
 import { useAuth } from "../context/UserContext"
+import { ProductCard } from "../components/products/ProductCard"
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -152,21 +153,12 @@ const Home = () => {
           </section>
         }
 
-        <div>
+        <div className="d-flex flex-column flex-md-row flex-wrap gap-3 p-3">
           {
-            products.map((product) => <div key={product.id}>
-              <h2 key={product.id}>{product.title}</h2>
-              <img width="80px" src={product.image} alt={`Imagen de ${product.title}`} />
-              <p>${product.price}</p>
-              <p>{product.description}</p>
-              <p><strong>{product.category}</strong></p>
-              {
-                user && <div>
-                  <button onClick={() => handleOpenEdit(product)}>Actualizar</button>
-                  <button onClick={() => handleDelete(product.id)}>Borrar</button>
-                </div>
-              }
-            </div>)
+            products.map((product) => (
+              < ProductCard params={product} key={product.id} />
+            )
+            )
           }
         </div>
       </section>
