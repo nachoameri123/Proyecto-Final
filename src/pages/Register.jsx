@@ -8,7 +8,7 @@ const Register = () => {
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setError("")
     setSuccess("")
@@ -24,12 +24,36 @@ const Register = () => {
       password
     }
 
-    console.log(newUser)
-    setSuccess("Usuario registrado con éxito")
+    await submitUser()
+    if (!error) {
 
-    setUsername("")
-    setEmail("")
-    setPassword("")
+      setSuccess("Usuario registrado con éxito")
+
+      setUsername("")
+      setEmail("")
+      setPassword("")
+    }
+  }
+
+  const submitUser = async () => {
+    const result = await fetch("https://fakestoreapi.com/users", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: 0,
+        username: username,
+        password: password,
+        email: email
+
+      })
+    })
+    if (!result.ok) {
+      setError("error creando el usuario")
+    }
+    const data = await result.json()
+    console.log(data)
   }
 
   return (
