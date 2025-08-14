@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Layout } from "../components/Layout"
 import { useAuth } from "../context/UserContext"
 import { ProductCard } from "../components/products/ProductCard"
+import { SearchComponent } from "../components/products/buscador"
 
 const Home = () => {
   const [products, setProducts] = useState([])
@@ -154,12 +155,8 @@ const Home = () => {
         }
 
         <div className="d-flex flex-column flex-md-row flex-wrap gap-3 p-3">
-          {
-            products.map((product) => (
-              < ProductCard params={product} key={product.id} />
-            )
-            )
-          }
+          <SearchComponent products={products} />
+
         </div>
       </section>
     </Layout>

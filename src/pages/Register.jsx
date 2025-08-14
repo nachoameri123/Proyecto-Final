@@ -34,45 +34,54 @@ const Register = () => {
 
   return (
     <Layout>
-      <h1>Registrate</h1>
+      <h1 className="text-center my-4">Regístrate</h1>
 
-      <section>
-        <h2>Hola, bienvenido</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Username:</label>
+      <section className="container">
+        <h2 className="mb-4">Hola, bienvenido</h2>
+
+        <form onSubmit={handleSubmit} className="p-4 border rounded shadow-sm bg-light">
+          <div className="mb-3">
+            <label className="form-label">Username:</label>
             <input
               type="text"
+              className="form-control"
               onChange={(e) => setUsername(e.target.value)}
               value={username}
+              placeholder="Ingresa tu nombre de usuario"
             />
           </div>
-          <div>
-            <label>Correo electrónico:</label>
+
+          <div className="mb-3">
+            <label className="form-label">Correo electrónico:</label>
             <input
               type="email"
+              className="form-control"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
+              placeholder="correo@ejemplo.com"
             />
           </div>
-          <div>
-            <label>Contraseña:</label>
+
+          <div className="mb-3">
+            <label className="form-label">Contraseña:</label>
             <input
               type="password"
+              className="form-control"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              placeholder="••••••••"
             />
           </div>
-          <button>Ingresar</button>
+
+          <button type="submit" className="btn btn-primary w-100">
+            Ingresar
+          </button>
         </form>
 
-        {
-          error && <p style={{ color: "red" }}>{error}</p>
-        }
-        {
-          success && <p style={{ color: "green" }}>{success}</p>
-        }
+        {error && <p className="mt-3 text-danger">{error}</p>}
+        {success && <p className="mt-3 text-success">{success}</p>}
       </section>
+
     </Layout>
   )
 }
