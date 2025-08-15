@@ -18,20 +18,25 @@ export const SearchComponent = ({ products }) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div className="d-flex flex-column flex-md-row flex-wrap gap-3 p-3">
+      <div className="container my-4">
+        <div className="row g-4">
+          {filteredItems.length > 0 ? (
 
-        {filteredItems.length > 0 ? (
+            filteredItems.map((product) => (
+              <div className="col-sm-6 col-md-4" key={product.id}>
+                < ProductCard params={product} />
+              </div>)
+            )
 
-          filteredItems.map((product) => (
-            < ProductCard params={product} key={product.id} />
-          )
-          )
-
-        ) : (
-          <li className="text-gray-500">No hay resultados.</li>
-        )}
+          ) : (
+            <li className="text-gray-500">No hay resultados.</li>
+          )}
+        </div>
       </div>
 
+
     </div>
+
+
   );
 };

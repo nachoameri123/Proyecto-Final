@@ -154,10 +154,8 @@ const Home = () => {
           </section>
         }
 
-        <div className="d-flex flex-column flex-md-row flex-wrap gap-3 p-3">
-          <SearchComponent products={products} />
+        <SearchComponent products={products} />
 
-        </div>
       </section>
     </Layout>
   )

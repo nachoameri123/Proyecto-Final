@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react"
 
+
 const UserContext = createContext()
 
 const UserProvider = (props) => {
@@ -24,12 +25,31 @@ const UserProvider = (props) => {
     }
   }
 
+  const register = async (username, password, email) => {
+    const result = await fetch("https://fakestoreapi.com/users", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: 0,
+        username: username,
+        password: password,
+        email: email
+
+      })
+    })
+    if (!result.ok) {
+      console.log("no se pudo registrar")
+    }
+    setUser(true)
+  }
   const logout = () => {
     setUser(null)
   }
 
   return (
-    <UserContext.Provider value={{ login, logout, user }}>
+    <UserContext.Provider value={{ login, logout, user, register }}>
       {props.children}
     </UserContext.Provider>
   )

@@ -1,13 +1,13 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Layout } from "../components/Layout"
-
+import { useAuth } from "../context/UserContext"
 const Register = () => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
-
+  const { register, user } = useAuth()
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError("")
@@ -24,7 +24,11 @@ const Register = () => {
       password
     }
 
-    await submitUser()
+    try {
+      await register(username, password, email)
+    } catch (error) {
+      setError("no se pudo crear el usuario")
+    }
     if (!error) {
 
       setSuccess("Usuario registrado con éxito")
@@ -32,29 +36,11 @@ const Register = () => {
       setUsername("")
       setEmail("")
       setPassword("")
+      console.log(user)
     }
   }
 
-  const submitUser = async () => {
-    const result = await fetch("https://fakestoreapi.com/users", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        id: 0,
-        username: username,
-        password: password,
-        email: email
 
-      })
-    })
-    if (!result.ok) {
-      setError("error creando el usuario")
-    }
-    const data = await result.json()
-    console.log(data)
-  }
 
   return (
     <Layout>
