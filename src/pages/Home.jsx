@@ -87,32 +87,67 @@ const Home = () => {
 
   return (
     <Layout>
-      <section>
-        <h1>Bienvenido a Nuestra Tienda</h1>
-        <p>Descubrí una selección exclusiva de productos para vos. Calidad, confianza y atención personalizada.</p>
-      </section>
+      <div>
+
+        <section className="py-5 bg-light text-center">
+          <div className="container">
+            <h1 className="display-5 fw-bold mb-3">Bienvenido a Nuestra Tienda</h1>
+            <p className="lead text-muted">
+              Descubrí una selección exclusiva de productos para vos.
+              <br />
+              Calidad, confianza y atención personalizada.
+            </p>
+          </div>
+        </section>
+
+
+        <section className="py-5">
+          <div className="container">
+            <h2 className="text-center mb-5">¿Por qué elegirnos?</h2>
+            <div className="row g-4">
+              <div className="col-12 col-md-4">
+                <div className="card h-100 shadow-sm border-0 text-center">
+                  <div className="card-body">
+                    <h3 className="card-title mb-3">🚚 Envíos a todo el país</h3>
+                    <p className="card-text text-muted">
+                      Recibí tu compra en la puerta de tu casa estés donde estés.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-4">
+                <div className="card h-100 shadow-sm border-0 text-center">
+                  <div className="card-body">
+                    <h3 className="card-title mb-3">💳 Pagos seguros</h3>
+                    <p className="card-text text-muted">
+                      Trabajamos con plataformas que garantizan tu seguridad.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-4">
+                <div className="card h-100 shadow-sm border-0 text-center">
+                  <div className="card-body">
+                    <h3 className="card-title mb-3">🤝 Atención personalizada</h3>
+                    <p className="card-text text-muted">
+                      Estamos disponibles para ayudarte en todo momento.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <section>
-        <h2>¿Por qué elegirnos?</h2>
-        <ul>
-          <li>
-            <h3>Envíos a todo el país</h3>
-            <p>Recibí tu compra en la puerta de tu casa estés donde estés.</p>
-          </li>
-          <li>
-            <h3>Pagos seguros</h3>
-            <p>Trabajamos con plataformas que garantizan tu seguridad.</p>
-          </li>
-          <li>
-            <h3>Atención personalizada</h3>
-            <p>Estamos disponibles para ayudarte en todo momento.</p>
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Nuestros productos</h2>
-        <p>Elegí entre nuestras categorías más populares.</p>
+        <div className="container">
+          <h2 className="fw-bold mb-3">Nuestros productos</h2>
+          <p className="lead text-muted">
+            Elegí entre nuestras categorías más populares.
+          </p>
+          <hr className="mx-auto" style={{ width: "60px", border: "2px solid #0d6efd" }} />
+        </div>
 
 
         {

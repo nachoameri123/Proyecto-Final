@@ -11,13 +11,18 @@ export const SearchComponent = ({ products }) => {
 
   return (
     <div className="p-4 max-w-md mx-auto">
-      <input
-        type="text"
-        placeholder="Buscar fruta..."
-        className="border px-3 py-2 w-full rounded mb-4"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+      <div className="mb-4 d-flex justify-content-center">
+        <div className="col-12 col-md-6">
+          <input
+            type="search"
+            className="form-control rounded-pill shadow-sm px-4 py-2"
+            placeholder="Buscar..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </div>
+
       <div className="container my-4">
         <div className="row g-4">
           {filteredItems.length > 0 ? (

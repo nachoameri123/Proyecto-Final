@@ -17,10 +17,10 @@ export function Navbar() {
               <a className="nav-link" href="/sobreNosotros">Sobre Nosotros</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Pricing</a>
+              <a className="nav-link" href="/Login">Login</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+              <a className="nav-link" href="/Registrate">Registrate</a>
             </li>
           </ul>
         </div>
